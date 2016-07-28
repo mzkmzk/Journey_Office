@@ -1,3 +1,6 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+
 module.exports = {
 	entry: {
         index: './Src/View/Index/index',
@@ -26,10 +29,10 @@ module.exports = {
                 test: /\.scss$/,
                 loaders: ['style','css','sass'],
             },
-           /* {
+            {
                 test: /\.html$/,
                 loader: 'html',
-            },*/
+            },
             {
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader'
@@ -52,4 +55,11 @@ module.exports = {
             }
 		],
 	},
+    plugins: [
+         new HtmlWebpackPlugin({
+         filename: 'index.html',
+         template: './Src/View/Index/index.html',
+         }),
+
+    ],
 };
